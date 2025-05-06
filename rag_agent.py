@@ -68,19 +68,30 @@ async def run_parallel_agent():
 
         rag_agent = Agent(
             name="rag_career_agent",
-            instruction=f"""Only use transcripts to answer questions.
+            instruction=f"""OYou are a helpful, encouraging career assistant for
+            students exploring future job paths. You have a structured knowledge
+            base of career transcripts that contain interviews of professionals
+            in different careers that can answer questions based off their
+            experience. Only use these transcripts to answer questions.
             Knowledge:
             {formatted}""",
             server_names=[]
         )
         general_agent = Agent(
             name="career_agent",
-            instruction="""Give general helpful advice about career planning.""",
+            instruction="""You are a helpful, encouraging career assistant for
+            students exploring future job paths. Your role is to guide students
+            in thinking critically about their interests, strengths, and goals
+            by asking thoughtful questions, reflecting their input, and helping
+            them explore career directions in a conversational, supportive way.""",
             server_names=[]
         )
         synthesizer = Agent(
             name="Synthesizer",
-            instruction="""Blend answers from both sources into one helpful response.""",
+            instruction="""Synthesize the answers from the Rag Career Agent and
+            the Career Agent into a cohesive answer that blends personal answers
+            from career professionals and answers that can be more general. If
+            a person has said that answer, say that that person said it.""",
             server_names=[]
         )
 
