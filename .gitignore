@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+mcp_demo/
+
+# OS files
+.DS_Store
+
+# Environment variables
+.env
+
+# VSCode settings (optional)
+.vscode/ 

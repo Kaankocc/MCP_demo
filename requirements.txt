@@ -1,0 +1,13 @@
+numpy
+python-dotenv
+openai
+pinecone-client
+langchain
+langchain_community
+langchain_openai
+langchain_pinecone
+sentence-transformers
+transformers
+mcp-agent
+aiohttp
+pyyaml
