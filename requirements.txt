@@ -11,3 +11,5 @@ transformers
 mcp-agent
 aiohttp
 pyyaml
+streamlit
+nest_asyncio

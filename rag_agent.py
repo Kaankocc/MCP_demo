@@ -52,23 +52,17 @@ async def run_career_agent():
         print("\nCareer Agent Result:\n", result)
 
 
-async def run_parallel_agent():
+async def run_parallel_agent(query_string):
     app = MCPApp(name="rag_parallel", settings=settings)
 
     async with app.run():
-        query = '''{
-            "content_string_query": "How does a journalist get into the industry?",
-            "industry_filter": [],
-            "takeaways_filter": []
-        }'''
-
-        parsed = parse_query_string(query)
+        parsed = parse_query_string(query_string)
         response = query_response(parsed)
         formatted = format_documents(response)
 
         rag_agent = Agent(
             name="rag_career_agent",
-            instruction=f"""OYou are a helpful, encouraging career assistant for
+            instruction=f"""You are a helpful, encouraging career assistant for
             students exploring future job paths. You have a structured knowledge
             base of career transcripts that contain interviews of professionals
             in different careers that can answer questions based off their
@@ -108,4 +102,4 @@ async def run_parallel_agent():
             """
         )
 
-        print("\nParallel Agent Result:\n", result)
+        return result
